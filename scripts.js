@@ -1,37 +1,70 @@
 const display = document.getElementById("input-box");
-const btns = document.querySelectorAll(".btn");
-let savedDisplay = 0;
-display.value = 0;
-let num1, num2, result = 0;
+const buttons = document.querySelectorAll(".buttons");
+const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
+const equalsBtn = document.getElementById("equals");
+
+let savedDisplay = '';
+let num1 = '';
+let num2 = '';
+let operand = '';
+let result = '';
 
 
 function operate(num1, num2, expression){
+    const firstNumber = parseFloat(num1);
+    const secondNumber = parseFloat(num2);
+
+    if (isNaN(firstNumber) || isNaN(secondNumber)) return;
     switch (expression){
         case "+":
-            return num1 + num2;
+            return firstNumber + secondNumber;
         case "-":
-            return num1 - num2;
+            return firstNumber - secondNumber;
         case "*":
-            return num1 * num2;
+            return firstNumber * secondNumber;
         case "/":
-            if (num2 == 0) alert("Can't divide by zero");
-            else return num1 / num2;       
+            return firstNumber / secondNumber;  
         default:
-            console.log("F");
+            return;     
     }
 }
 
 function clearScreen() {
-    savedDisplay = 0;
-    num1 = 0;
-    num2 = 0;
-    result = 0;
-    document.getElementById("input-box").value = 0;
+    savedDisplay = '';
+    num1 = '';
+    num2 = '';
+    result = '';
+    operand = '';
+    display.value = '';
 }
 
-btns.forEach(btn => {
-    btn.addEventListener("click", function(event) {
-        display.value = btn.value;
-        savedDisplay = btn.value;
+numbers.forEach(number => {
+    number.addEventListener("click", () => {
+        if (operand != ''){
+            display.value = '';
+            display.value = display.value.toString() + number.value.toString();
+            savedDisplay = display.value.toString(); 
+        } else {
+        display.value = display.value.toString() + number.value.toString();
+        savedDisplay = display.value.toString();  
+    }
     });
+});
+
+operators.forEach(operator => {
+    operator.addEventListener("click", () => {
+        num1 = savedDisplay; 
+        operand = operator.value;
+        display.value = operand;
+    });
+});
+
+equals.addEventListener("click", () => {
+    // in case the user presses equals before input
+    if (num1 == '' || savedDisplay == ''){
+        return;
+    }
+    result == '' ? result = operate(num1, savedDisplay, operand) : result = operate(result, savedDisplay, operand);      
+    display.value = result;
 });
