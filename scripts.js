@@ -43,12 +43,9 @@ numbers.forEach(number => {
     number.addEventListener("click", () => {
         if (operand != ''){
             display.value = '';
-            display.value = display.value.toString() + number.value.toString();
-            savedDisplay = display.value.toString(); 
-        } else {
+        }
         display.value = display.value.toString() + number.value.toString();
         savedDisplay = display.value.toString();  
-    }
     });
 });
 

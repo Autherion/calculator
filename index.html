@@ -5,30 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet"> 
     <script type="text/javascript" src="scripts.js" defer></script>
     <title>Calculator with HTML, CSS and JS!</title>
 </head>
 <body>
-    <div class="calculator-box">
-        <input id = "input-box" type = "text" id = "result" disabled>   
-        <div class="buttons">
-            <input class="number" type="button" value="1">
-            <input class="number" type="button" value="2">
-            <input class="number" type="button" value="3">
-            <input class="number" type="button" value="4">
-            <input class="number" type="button" value="5">
-            <input class="number" type="button" value="6">
-            <input class="number" type="button" value="7">
-            <input class="number" type="button" value="8">
-            <input class="number" type="button" value="9">
-            <input class="number" type="button" value="0">
-            <input id="clear-screen" type="button" value="CE" onclick="clearScreen()">       
+    <div class="calculator">
+        <form action="" class="calculator">
+        <div class="display">
+            <input id = "input-box" type = "text" id = "result" disabled> 
         </div>
-        <input class="operator" id="add" type="button" value="+">
-        <input class="operator" id="substract" type="button" value="-">
-        <input class="operator" id="multiply" type="button" value="*">
-        <input class="operator" id="divide" type="button" value="/">
-        <input id="equals" type="button" value="=">
+            <div class="buttons"> 
+                <input id="clear-screen" type="button" value="AC" onclick="clearScreen()"> 
+                <input id="delete" type="button" value="DEL"> 
+                <input class="button operator" id="divide" type="button" value="/">   
+                <input class="button operator" id="multiply" type="button" value="*">
+                
+                <input class="button number" type="button" value="7">
+                <input class="button number" type="button" value="8">
+                <input class="button number" type="button" value="9">
+                <input class="button operator" id="substract" type="button" value="-">
+                
+                <input class="button number" type="button" value="6">
+                <input class="button number" type="button" value="5">
+                <input class="button number" type="button" value="4">
+                <input class="button operator" id="add" type="button" value="+">
+                
+                <input class="button number" type="button" value="1">
+                <input class="button number" type="button" value="2">
+                <input class="button number" type="button" value="3">
+                <input id="equals" type="button" value="=">  
+                
+                <input class="button number" type="button" value="0">
+                <input id="point" type="button" value=".">
+                </form>        
+        </div>       
     </div>
 </body>
 </html>
